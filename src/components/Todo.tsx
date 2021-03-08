@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ListItem from '@material-ui/core/ListItem';
 
 type PropsType = {
   id: number;
@@ -8,14 +9,13 @@ type PropsType = {
 };
 
 const Todo: React.VFC<PropsType> = ({ onClick, completed, text }) => (
-  <li className="todo-item">
-    <span
-      onClick={onClick}
-      style={{ textDecoration: completed ? 'line-through' : 'none' }}
-    >
-      {text}
-    </span>
-  </li>
+  <ListItem
+    button
+    onClick={onClick}
+    style={{ textDecoration: completed ? 'line-through' : 'none' }}
+  >
+    {text}
+  </ListItem>
 );
 
 export default Todo;

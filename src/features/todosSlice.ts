@@ -15,11 +15,10 @@ export default createSlice({
     addTodo: (state, action: PayloadAction<InitialState[0]>) => {
       state.push(action.payload);
     },
-    toggleTodo: (state, action: PayloadAction<number>) => {
-      state = state.map(s => ({
+    toggleTodo: (state, action: PayloadAction<number>) =>
+      state.map(s => ({
         ...s,
         completed: action.payload === s.id ? !s.completed : s.completed
-      }));
-    }
+      }))
   }
 });

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import List from '@material-ui/core/List';
 import Todo from './Todo';
 
 type PropsTypes = {
@@ -11,17 +12,11 @@ type PropsTypes = {
 };
 
 const TodoList: React.VFC<PropsTypes> = ({ todos, onTodoClick }) => (
-  <ul className="todo-list">
+  <List>
     {todos.map(todo => (
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => {
-          onTodoClick(todo.id);
-        }}
-      />
+      <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)} />
     ))}
-  </ul>
+  </List>
 );
 
 export default TodoList;
