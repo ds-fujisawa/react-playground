@@ -9,14 +9,13 @@ type PropsType = {
 const Link: React.FC<PropsType> = ({ active, children, onClick }) => {
   if (active) return <Button disabled>{children}</Button>;
 
+  const clickHandler = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onClick();
+  };
+
   return (
-    <Button
-      onClick={e => {
-        e.preventDefault();
-        onClick();
-      }}
-      color="primary"
-    >
+    <Button onClick={clickHandler} color="primary">
       {children}
     </Button>
   );
